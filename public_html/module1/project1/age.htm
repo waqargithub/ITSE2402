@@ -1,0 +1,91 @@
+<!DOCTYPE html >
+<html lang="en" >
+<head>
+    <title>
+      Retirement Check 
+    </title>    
+    <meta charset="utf-8" />
+
+
+ <!-- This is where your link tag goes when linking to an external style sheet. -->
+ <link rel="stylesheet" href="retirement.css" type="text/css">
+<!--This is the format you will use when entering JavaScript -->    
+<script type="text/javascript">
+/* <![CDATA[ */
+
+// your JavaScript instructions will go here
+function verifySubmit() {
+    
+    //Declare variables needed to verify valid entry for name
+    var nameEntered = document.forms[0].name.value;
+    var nameNotAlphabetic = /[^a-zA-Z\s\.]/.test(nameEntered);
+    //Verify an entry was made. If not, display error and return false.
+    if (nameEntered.length == 0) {
+        window.alert("No entry made for name. Please try again.");
+        return false;
+    }
+    //if entry was made, verify it was alphabetic. If not, display error, return false.
+    else if (nameNotAlphabetic == true) {
+        window.alert("The entry for name contains non-alphabetic characters. Please check and try again.");
+        return false;
+    }
+    
+    //Declare variables needed to verify valid entry for age    
+    var ageEntered = document.forms[0].age.value;
+    var ageNotNumeric = /[^0-9]/.test(ageEntered);
+    //Verify an entry was made. If not, display error and return false.
+    if (ageEntered.length == 0) {
+        window.alert("No entry made for age. Please try again.");
+        return false;
+    }
+    //if entry was made, verify it was alphabetic. If not, display error, return false.
+    else if (ageNotNumeric == true) {
+        window.alert("The entry for age contains non-numeric characters. Please check and try again.");
+        return false;
+    }
+        
+    //Check if age greater than or equal to 65 and enter appropriate value in hidden field
+    if (ageEntered >= 65)
+        document.forms[0].retirement.value = "yes";
+    else
+        document.forms[0].retirement.value = "no";
+    
+    return true;   
+}
+
+/* ]]> */
+</script>  
+
+</head>
+
+  <body> 
+ <div>
+    <h1>Is it time to retire?</h1>
+<!-- Your XHTML here -->
+ 
+ <form action="processAge.htm" method="get" onsubmit="return verifySubmit();">
+    <table>
+        <tr>
+            <td><strong>Name:</strong></td>
+            <td><input type="text" name="name"></td>
+        </tr>
+        <tr>
+            <td><strong>Age:</strong></td>
+            <td><input type="text" name="age" maxlength="3"></td>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="submit" name="submit"><input type="reset"></td>
+        </tr>
+    </table>
+    <input type="hidden" name="retirement">
+ </form> 
+
+
+
+<!-- external javascript for validation -->  
+<script type="text/javascript" src="../../validation.js">
+</script>    
+
+</div>
+  </body>
+  </html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html >
+<html lang="en" >
+<head>
+    <title>
+      Retirement Answer 
+    </title>    
+    <meta charset="utf-8" />
+
+
+ <!-- This is where your link tag goes when linking to an external style sheet. -->
+ <link rel="stylesheet" href="retirement.css" type="text/css">
+<!--This is the format you will use when entering JavaScript -->
+<style type="text/css">
+    .answer:first-letter {font-size:200%; color:YELLOW;}
+</style>
+
+
+<script type="text/javascript">
+/* <![CDATA[ */
+
+// your JavaScript instructions will go here
+
+/* ]]> */
+</script>    
+    
+</head>
+
+<body> 
+<div class="answer">  
+<script type="text/javascript">
+    /* <![CDATA[ */
+    var formData = location.search;
+    formData = formData.substring(1, formData.length);
+       
+    while (formData.indexOf("+") != -1) {
+        formData = formData.replace("+", " ");
+    }
+    while (formData.indexOf("=") != -1) {
+        formData = formData.replace("=", "&");
+    }
+    
+    formData = unescape(formData);
+    
+    
+    var formArray = formData.split("&");
+    var nameIndex = 1;
+    var ageIndex = 3;
+    var retirementIndex = 7;
+    document.write("Hi " + formArray[nameIndex] + "!");
+    document.write(" At age " + formArray[ageIndex]);
+    if (formArray[retirementIndex] == "yes")
+        document.write(" you may retire. Thank you for your service!");
+    else {
+        document.writeln(" you are not ready to retire. Now get to work already. Chop! Chop!");
+        document.write("But look below for what you look forward to when you retire.");
+    }
+    
+    /* ]]> */
+ 
+</script>
+  
+
+
+
+<!-- external javascript for validation -->  
+<script type="text/javascript" src="../../validation.js">
+</script>    
+
+</div>
+  </body>
+  </html>

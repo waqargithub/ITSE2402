@@ -1,0 +1,92 @@
+<!DOCTYPE html >
+<html lang="en" >
+    <head>
+        <title>
+          Express Currency Conversion 
+        </title>    
+        <meta charset="utf-8" />
+
+
+        <!-- This is where your link tag goes when linking to an external style sheet. -->
+        <link rel="stylesheet" href="currencyConversion.css" type="text/css">
+ 
+        <!--This is the format you will use when entering JavaScript -->
+        
+        <script type="text/javascript" src="tomorrow.js">
+        </script>
+        <script type="text/javascript" src="defineArrayOfMonths.js">
+        </script>
+        <script type="text/javascript" src="printDatesTodayTomorrow.js">
+        </script>
+        
+        
+        
+        <script type="text/javascript">
+        /* <![CDATA[ */      
+        function confirmSubmit(){
+            var currencyNotNumerical = isNaN(document.forms[0].dollarAmount.value);
+            var currencySelected = false;
+            if (document.forms[0].dollarAmount.value == "") {
+                window.alert("Please enter an amount to convert");
+                document.forms[0].dollarAmount.focus();
+                return false;
+            }
+            else if (currencyNotNumerical == true) {
+                window.alert("Please enter a numerical value for currency to convert.");
+                document.forms[0].dollarAmount.focus();
+                return false;
+            }
+            else {                
+                for (i=0; i<3; i++) {
+                    if (document.forms[0].currencyDesired[i].checked == true) {
+                        currencySelected = true;
+                        break;
+                    }
+                }
+                if (currencySelected == false) {
+                    window.alert("Please select the currency to which you wish to convert.");
+                    return false;
+                }
+            }
+            return true;
+        }
+/*        
+        function confirmReset() {
+            document.forms[0].dollarAmount.value = "";
+            for (i=0; i<3; i++) {
+                document.forms[0].currencyDesired[i].checked = false;
+            }
+            return false;
+        }
+*/        
+        /* ]]> */
+        </script>    
+    
+    </head>
+
+    
+    <body> 
+        <div>          
+            <form action="conversion.htm" method="get" onsubmit="return confirmSubmit();">
+                What is the amount of U.S. Dollars which you want to convert?
+                <br>
+                $<input type="text" name="dollarAmount" value="">
+                <br>
+                <br>    
+                To which currency would you like to convert?
+                <br>
+                <input type="radio" name="currencyDesired" value="euros">Euros<br>
+                <input type="radio" name="currencyDesired" value="gbPound">GBPound<br>
+                <input type="radio" name="currencyDesired" value="yen">Yen<br>
+                <p><input type="submit" value="Convert">&nbsp;
+                <input type="reset"></p>
+            </form>
+            
+            
+            
+            <!-- external javascript for validation -->  
+            <script type="text/javascript" src="../../validation.js">
+            </script>    
+        </div>
+    </body>
+</html>

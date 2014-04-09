@@ -1,0 +1,72 @@
+<!DOCTYPE html >
+<html lang="en" >
+    <head>
+        <title>
+          Pine Knoll Properties (Waqar)
+        </title>    
+        <meta charset="utf-8" />
+
+
+        <!-- This is where your link tag goes when linking to an external style sheet. -->
+ 
+        <!--This is the format you will use when entering JavaScript -->    
+        <script type="text/javascript">
+        /* <![CDATA[ */
+
+        var smallCottageImage = new Image();
+        smallCottageImage.src = "images/cottage_small.jpg";
+        var largeCottageImage = new Image();
+        largeCottageImage.src = "images/cottage_large.jpg";
+        document.getElementById("cottageImage").src = smallCottageImage.src;
+        
+        function changeImageSize() {
+            if (document.getElementById("cottageImage").src == smallCottageImage.src) {
+                document.getElementById("cottageImage").src = largeCottageImage.src;
+                document.getElementById("cottageLink").innerHTML = "View smaller image";
+            }
+            else {
+                document.getElementById("cottageImage").src = smallCottageImage.src;
+                document.getElementById("cottageLink").innerHTML = "View larger image";
+            }
+        }
+
+ /*       function changeImageSize() {
+            if (document.getElementById("cottageImage").src == "images/cottage_small.jpg")
+                document.getElementById("cottageImage").src = "images/cottage_large.jpg";
+            else
+                document.getElementById("cottageImage").src = "images/cottage_small.jpg";
+        }
+*/
+        /* ]]> */
+        </script>    
+    
+    </head>
+
+    <body>
+        <div> 
+            <!-- Your HTML here -->
+        <script type=text/javascript>
+        /* <![CDATA[ */
+        document.write("<h1 id='mainHeading'></h1>");
+        document.getElementById("mainHeading").innerHTML = document.getElementsByTagName("title")[0].innerHTML;     
+        /* ]]> */
+        </script>
+        <h2>Single Family Homes</h2>
+        <p>Cottage: $149,000<br>
+        2 bed, 1 bath, 1,189 square feet, 1.11 acres<br>
+        <br>
+        <a href="#" id="cottageLink" onclick="changeImageSize(); return false;">View larger image</a>
+        </p>
+        <img src="images/cottage_small.jpg" id="cottageImage" alt="image of cottage" />
+        
+              
+            
+            
+            
+            <!-- external javascript for validation -->  
+            <script type="text/javascript" src="../../validation.js">
+            </script>    
+
+        </div>
+    </body>
+</html>
